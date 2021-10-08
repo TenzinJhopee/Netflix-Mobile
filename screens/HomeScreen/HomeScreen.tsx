@@ -19,7 +19,7 @@ export default function HomeScreen({ navigation }: RootTabScreenProps<'TabOne'>)
       <FlatList
         data={categories.items}
         renderItem={({item}) => <HomeCategory category={item}/>}
-        />
+      />
     </View>
   );
 }

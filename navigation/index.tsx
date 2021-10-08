@@ -15,9 +15,11 @@ import useColorScheme from '../hooks/useColorScheme';
 import ModalScreen from '../screens/ModalScreen';
 import NotFoundScreen from '../screens/NotFoundScreen';
 import TabOneScreen from '../screens/HomeScreen/HomeScreen';
+import MovieDetailsScreen from '../screens/MovieDetailsScreen';
 import TabTwoScreen from '../screens/TabTwoScreen';
 import { RootStackParamList, RootTabParamList, RootTabScreenProps } from '../types';
 import LinkingConfiguration from './LinkingConfiguration';
+import HomeScreen from '../screens/HomeScreen/HomeScreen';
 
 export default function Navigation({ colorScheme }: { colorScheme: ColorSchemeName }) {
   return (
@@ -63,8 +65,8 @@ function BottomTabNavigator() {
         tabBarActiveTintColor: Colors[colorScheme].tint,
       }}>
       <BottomTab.Screen
-        name="Home"
-        component={TabOneScreen}
+        name="MovieDetailsScreen"
+        component={MovieDetailsScreen}
         options={({ navigation }: RootTabScreenProps<'TabOne'>) => ({
           title: 'Home',
           tabBarIcon: ({ color }) => <AntDesign name="home" size={24} color={color} />,
@@ -83,6 +85,14 @@ function BottomTabNavigator() {
             </Pressable>
           ),
         })}
+      />
+
+    <BottomTab.Screen
+        name="HomeScreen"
+        component={HomeScreen}
+        options={{
+          headerShown: false
+        }}
       />
       <BottomTab.Screen
         name="Coming_Soon"
