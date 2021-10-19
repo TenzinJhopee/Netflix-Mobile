@@ -80,7 +80,9 @@ const MovieDetailsScreen = () => {
                         setCurrentSeason(movie.seasons.items[itemIndex])
                     }
                 }
-                style={{color: 'white'}}>
+                style={{color: 'white', width: 130}}
+                dropdownIconColor={'white'}
+                >
                     {seasonNames.map(seasonName => (
                         <Picker.Item label={seasonName} value={seasonName} key={seasonName} />
                     ))}
