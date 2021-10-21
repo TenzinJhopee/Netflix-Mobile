@@ -1,24 +1,20 @@
 import React from 'react'
-import { View, Text } from 'react-native'
+import { View, Text, Pressable } from 'react-native'
 import { Image } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
 import styles from './styles';
+import { Episode } from '../../types';
 
 interface EpisodeItemProps {
-    episode: {
-        id: string,
-        title: string,
-        poster: string,
-        duration: string,
-        plot: string,
-        video: string,
-    }
+    episode: Episode;
+    onPress: (eppisode: Episode) => {}
 }
 
 const EpisodeItem = (props: EpisodeItemProps) => {
-    const { episode } = props;
+    const { episode, onPress } = props;
 
     return (
+        <Pressable style={{ margin: 10 }} onPress={() => onPress(episode)}>
         <View style={{ marginVertical: 10 }}>
             <View style={styles.row}>
                 <Image style={styles.image} source={{ uri: episode.poster}}>
@@ -35,6 +31,7 @@ const EpisodeItem = (props: EpisodeItemProps) => {
                 {episode.plot}
             </Text>
         </View>
+        </Pressable>
     )
 }
 
